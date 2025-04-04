@@ -45,7 +45,7 @@ export default function LandingPage() {
             <div className="p-2 rounded-lg bg-primary/10 dark:bg-primary/20">
               <Shield className="h-10 w-10 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold">CrowdShield</h1>
+            <h1 className="text-4xl md:text-6xl font-bold">SatarkAI</h1>
           </motion.div>
           
           <motion.h2 
@@ -182,7 +182,7 @@ export default function LandingPage() {
             variants={slideUp}
             className="text-lg text-center max-w-3xl mx-auto mb-16 text-muted-foreground"
           >
-            CrowdShield uses advanced machine learning algorithms to detect and alert authorities 
+            SatarkAI uses advanced machine learning algorithms to detect and alert authorities 
             about potential threats in real-time.
           </motion.p>
 
@@ -260,7 +260,7 @@ export default function LandingPage() {
               whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               className="rounded-lg overflow-hidden shadow-lg bg-card border border-border"
             >
-              <div className="bg-muted p-4 text-foreground text-sm border-b border-border">CrowdShield Dashboard</div>
+              <div className="bg-muted p-4 text-foreground text-sm border-b border-border">Satark AI Dashboard</div>
               <div className="h-80 flex items-center justify-center p-8 bg-card">
                 <motion.div 
                   whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
@@ -463,7 +463,7 @@ export default function LandingPage() {
             variants={slideUp}
             className="text-lg max-w-2xl mx-auto mb-10 text-primary-foreground/80"
           >
-            Join organizations already using CrowdShield to create safer environments 
+            Join organizations already using SatarkAI to create safer environments 
             through proactive threat detection.
           </motion.p>
           
@@ -507,10 +507,10 @@ export default function LandingPage() {
               <div className="p-1 rounded-lg bg-primary/10">
                 <Shield className="h-6 w-6 text-primary" />
               </div>
-              <span className="text-xl font-bold">CrowdShield</span>
+              <span className="text-xl font-bold">SatarkAI</span>
             </motion.div>
             <div className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} CrowdShield Technologies. All rights reserved.
+              &copy; {new Date().getFullYear()} SatarkAI Technologies. All rights reserved.
             </div>
           </div>
         </div>

@@ -36,7 +36,7 @@ export default function CameraDashboard() {
     <SidebarProvider>
       <div className="flex h-screen w-full">
         {/* Sidebar */}
-        <AppSidebar />
+        {/* <AppSidebar /> */}
 
         {/* Main Content */}
         <SidebarInset className="flex flex-1 flex-col">
