@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from "@/components/ui/dropdown-menu";
 import { Dispatch, SetStateAction } from "react";
 
-export function ViewDropdown({ setView }:{setView:Dispatch<SetStateAction<number>> }) {
+export function ViewDropdown({ setView }: { setView: Dispatch<SetStateAction<number>> }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -17,13 +22,19 @@ export function ViewDropdown({ setView }:{setView:Dispatch<SetStateAction<number
   );
 }
 
-export function CameraGrid({ view }:{ view:number }) {
+export function CameraGrid({ view }: { view: number }) {
   const dummyCameras = Array.from({ length: view }, (_, i) => `Camera ${i + 1}`);
   
   return (
-    <div className="grid gap-4 p-4 rounded-xl bg-muted/50" style={{ gridTemplateColumns: `repeat(${Math.sqrt(view)}, 1fr)` }}>
+    <div 
+      className="grid gap-4 p-4 rounded-xl bg-muted"
+      style={{ gridTemplateColumns: `repeat(${Math.sqrt(view)}, 1fr)` }}
+    >
       {dummyCameras.map((camera, index) => (
-        <div key={index} className="aspect-video bg-gray-300 rounded-lg flex items-center justify-center">
+        <div 
+          key={index} 
+          className="aspect-video bg-card border border-border text-card-foreground rounded-lg flex items-center justify-center"
+        >
           {camera}
         </div>
       ))}

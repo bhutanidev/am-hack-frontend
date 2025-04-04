@@ -1,4 +1,6 @@
-"use client"
+"use client";
+
+import { useState, useEffect } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -6,19 +8,30 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { CameraGrid, ViewDropdown } from "@/components/camera-grid";
-import { useState } from "react";
+import { ViewDropdown } from "@/components/camera-grid";
 import { AlertPanel } from "@/components/alert-panel";
-import useAlertStore from "@/store/store";
-import { log } from "console";
+import { ModeToggle } from "@/components/toggle-button";
+import { CameraGrid } from "@/components/camera-grid";
 
 export default function CameraDashboard() {
   const [view, setView] = useState(4);
-//   const store = useAlertStore()
-//   console.log(store);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a 0.7-second loading time
+    const timer = setTimeout(() => setIsLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-background">
+        {/* Loading Spinner */}
+        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   return (
     <SidebarProvider>
       <div className="flex h-screen w-full">
@@ -30,24 +43,18 @@ export default function CameraDashboard() {
           <header className="flex h-16 items-center justify-between border-b px-4">
             <div className="flex items-center gap-2">
               <SidebarTrigger className="-ml-1" />
-              <Separator
-                orientation="vertical"
-                className="h-6"
-              />
+              <Separator orientation="vertical" className="h-6" />
             </div>
-            {/* Dropdown Button for Camera Views */}
-            <ViewDropdown setView = {setView}/>
+            <ViewDropdown setView={setView} />
+            <ModeToggle />
           </header>
 
           <div className="flex flex-1 gap-4 p-4">
-            {/* Camera Grid */}
             <div className="flex-1 bg-muted/50 rounded-xl p-4">
-                <CameraGrid view={view} />
+              <CameraGrid view={view} />
             </div>
-            
-            {/* Alerts Panel */}
             <div className="w-1/4 bg-muted/50 rounded-xl p-4">
-                <AlertPanel/>
+              <AlertPanel />
             </div>
           </div>
         </SidebarInset>
