@@ -10,9 +10,15 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/components/ui/button";
 import { CameraGrid, ViewDropdown } from "@/components/camera-grid";
 import { useState } from "react";
+import { AlertPanel } from "@/components/alert-panel";
+import useAlertStore from "@/store/store";
+import { log } from "console";
 
 export default function CameraDashboard() {
   const [view, setView] = useState(4);
+//   const store = useAlertStore()
+//   console.log(store);
+  
   return (
     <SidebarProvider>
       <div className="flex h-screen w-full">
@@ -40,7 +46,9 @@ export default function CameraDashboard() {
             </div>
             
             {/* Alerts Panel */}
-            <div className="w-1/4 bg-muted/50 rounded-xl p-4">Alerts</div>
+            <div className="w-1/4 bg-muted/50 rounded-xl p-4">
+                <AlertPanel/>
+            </div>
           </div>
         </SidebarInset>
       </div>
